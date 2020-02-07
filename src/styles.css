@@ -1,0 +1,60 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* You can add global styles to this file, and also import other style files */
+.pesquisa{
+    width: 300px;
+    height: 30px;
+    float: right;
+}
+.t-full-width{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.btn-ok{
+    color: black;
+    border-color: #38ef7d;
+    display: inline-flex;
+    float: right;
+    border-width: 1px;
+}
+.btn-ok:hover{
+    color: #38ef7d;
+    font-weight: bold;
+    border-color: black;
+    display: inline-flex;
+    float: right;
+    border-width: 1px;
+}
+.btn-remover{
+    color: black;
+    border-color: red;
+    display: inline-flex;
+    float: right;
+    border-width: 1px;
+}
+.btn-remover:hover{
+    color:red;
+    font-weight: bold;
+    border-color: black;
+    display: inline-flex;
+    float: right;
+    border-width: 1px;
+}
+.btn-atencao{
+    color: black;
+    border-color: rgb(140, 143, 2);
+    display: inline-flex;
+    float: right;
+    border-width: 1px;
+}
+.btn-atencao:hover{
+    color: rgb(140, 143, 2);
+    border-color: black;
+    font-weight: bold;
+    display: inline-flex;
+    float: right;
+    border-width: 1px;
+}
+p{
+    font-weight: bold;
+    font-size: 25px;
+}

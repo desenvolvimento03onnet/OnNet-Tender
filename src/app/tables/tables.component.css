@@ -1,0 +1,36 @@
+@import "../../styles.css";
+.card-crud{
+    /*background: rgb(191, 209, 199);  fallback for old browsers
+    background: -webkit-linear-gradient(to right, #6d7a8157, #BBD2C5);  /* Chrome 10-25, Safari 5.1-6 
+    background: linear-gradient(to right, #6f757965, #BBD2C5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: "Roboto","Helvetica Neue",Arial,sans-serif;
+    height: 90px;
+    width: 315px;
+    display: inline-flex;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.card-crud .card-crud-icons{
+    font-size: 30px;
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-left: initial;
+    padding-left: 6px;
+    vertical-align: auto;
+}
+.card-crud .card-crud-text{
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: auto;
+    margin-top: auto;
+    padding-left: 23px;
+}
+table tbody td{
+    min-width: 10px;
+    max-width: 150px;
+    min-height: 44px;
+    max-height: 45;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}

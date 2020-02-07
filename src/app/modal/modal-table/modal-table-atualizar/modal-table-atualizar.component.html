@@ -1,0 +1,17 @@
+<p>Adicionar Categoria</p>
+<hr>
+<form class="example-form">
+  <div class="example-full-width">
+    <mat-form-field class="input">
+      <input matInput [(ngModel)]="descricao" name="descricao" >
+      <mat-placeholder>
+        Descrição da Categoria
+      </mat-placeholder>
+    </mat-form-field>
+  <br><br>
+
+  </div>
+  <div class="botoes">
+    <button class="btn btn-ok" type="submit" (click)="adicionaCategoria()">Adicionar</button>
+  </div>
+</form>

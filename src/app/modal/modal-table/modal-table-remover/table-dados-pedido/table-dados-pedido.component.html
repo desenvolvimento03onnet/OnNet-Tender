@@ -1,0 +1,19 @@
+<div class="tabela">
+  <table>
+    <tr>
+      <th>Produto</th>
+      <th>Valor Unitário</th>
+      <th>Quantidade</th>
+      <th>Valor Total</th>
+    </tr>
+    <tr *ngFor="let pedido of pedidos">
+      <td>{{ pedido.produto }}</td>
+      <td>{{ pedido.valor }}</td>
+      <td>{{ pedido.quantidade }}</td>
+      <td>{{ pedido.valorTotal }}</td>
+      <td> <button (click)="excluirProduto()">Excluir</button> </td>
+    </tr>
+  </table>
+</div>
+
+<button (click)="adicionaProduto()">Adicionar</button>

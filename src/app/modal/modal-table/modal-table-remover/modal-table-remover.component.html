@@ -1,0 +1,53 @@
+<p>Adicionar Pedido</p>
+<hr>
+<form>
+    <mat-form-field class="inputMaior">
+      <input matInput name="descricaoPedido" [(ngModel)]="descricaoPedido">
+      <mat-placeholder>
+        Descrição do Pedido
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="number" name="quantidade" [(ngModel)]="quantidade">
+      <mat-placeholder>
+        Quantidade
+      </mat-placeholder>
+    </mat-form-field>
+<br>
+    <mat-form-field class="inputMaior">
+      <input matInput name="observacao" [(ngModel)]="observacao">
+      <mat-placeholder>
+        Observação
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-placeholder>
+        Produtos
+      </mat-placeholder>
+      <mat-select [(ngModel)]="produto" name="produtos">
+        <mat-option *ngFor="let produto of retornoGetProduct" [value]="produto">
+          {{ produto.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button class="btn btn-ok" type="submit" (click)="enviaTabela()" >Adicionar Produto</button>
+</form>
+<div class="tabela">
+  <table class="table table-striped">
+    <thead>
+      <th>Produto</th>
+      <th>Quantidade</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listaProduto">
+        <td>{{ item.produto }}</td>
+        <td>{{ item.quantidade }}</td>
+        <td><button class="btn btn-remover" type="reset" (click)="removerLinha()">Remover Produto</button></tr>
+    </tbody>
+  </table>
+</div>
+<div class="botao">
+  <button class="btn btn-ok" type="submit" (click)="enviaPedido()">Enviar Pedido</button>
+</div>

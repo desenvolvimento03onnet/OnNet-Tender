@@ -1,0 +1,32 @@
+<p class="title">Adicionar Produto</p>
+<hr>
+<form class="example-form">
+  <div class="example-full-width">
+    <mat-form-field class="input">
+      <input matInput [(ngModel)]="produto" name="produto">
+      <mat-placeholder>
+        Descrição do Produto
+      </mat-placeholder>
+    </mat-form-field>
+
+  <br><br>
+
+  <mat-form-field class="select">
+    <mat-placeholder>
+      Categoria
+    </mat-placeholder>
+    <mat-select [(ngModel)]="categoriaSelecionada" name="categoria">
+
+      <mat-option 
+        *ngFor="let item of listaObjectCategoria" [value]="item">
+          {{ item.tipo }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br><br>
+  </div>
+  <div class="botoes">
+    <button class="btn btn-ok" (click)="adicionaProduto()">Adicionar</button>
+  </div>
+</form>

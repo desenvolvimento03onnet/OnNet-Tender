@@ -1,0 +1,30 @@
+.sidebar,
+.bootstrap-navbar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 260px;
+  display: block;
+  z-index: 5;
+  color: #fff;
+  font-weight: 200;
+  background-size: cover;
+  background-position: center center;
+}
+.sidebar[data-image]:after, .sidebar.has-image:after,
+.bootstrap-navbar[data-image]:after,
+.bootstrap-navbar.has-image:after {
+  opacity: .77;
+}
+.sidebar[data-color="green-tender"]:after,
+.bootstrap-navbar[data-color="green-tender"]:after {
+  background: #04c98e;
+  background: -moz-linear-gradient(top, #04c98e 0%, #02a172 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #04c98e), color-stop(100%, #02a172));
+  background: -webkit-linear-gradient(top, #04c98e 0%, #02a172 100%);
+  background: -o-linear-gradient(top, #04c98e 0%, #02a172 100%);
+  background: -ms-linear-gradient(top, #04c98e 0%, #02a172 100%);
+  background: linear-gradient(to bottom, #04c98e 0%, #02a172 100%);
+  background-size: 150% 150%;
+}

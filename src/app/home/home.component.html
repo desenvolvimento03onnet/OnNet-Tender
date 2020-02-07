@@ -1,0 +1,102 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <!--<div class="row">
+            <div class="col-md-4">
+                <lbd-chart
+                  [title]="'Email Statistics'"
+                  [subtitle]="'Last Campaign Performance'"
+                  [chartClass]="'ct-perfect-fourth'"
+                  [chartType]="emailChartType"
+                  [chartData]="emailChartData"
+                  [legendItems]="emailChartLegendItems"
+                  [withHr]="true"
+                  [footerIconClass]="'fa fa-clock-o'"
+                  [footerText]="'Campaign sent 2 days ago'">
+                </lbd-chart>
+            </div>
+
+        </div>-->
+        <div class="row">
+            <div class="col-md-6">
+                <lbd-chart
+                  [title]="'Compras no Ano'"
+                  [subtitle]="'Valor mensal de compras no ano'"
+                  [chartType]="activityChartType"
+                  [chartData]="activityChartData"
+                  [chartOptions]="activityChartResponsive"
+                  [chartResponsive]="activityChartResponsive"
+                  [legendItems]="activityChartLegendItems"
+                  [withHr]="false"
+                  [footerIconClass]="'fa fa-check'"
+                  [footerText]="'Data information certified'">
+                </lbd-chart>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Últimos Orçamentos</h4>
+                    </div>
+                    <div class="content">
+                        <div class="table-full-width">
+                            <table class="table table-striped table-hoover">
+                                <thead>
+                                    <th></th>
+                                    <th>Código</th>
+                                    <th>Descrição</th>
+                                    <th>Status</th>
+                                    <th>Usuário</th>
+                                    <th>Data</th>
+                                </thead>
+                                <tbody>
+
+                                    <tr *ngFor="let item of listObjectPedido | slice:0:8;">
+                                        <td>
+                                            <div [ngSwitch]="item.aprovado">
+                                                <td *ngSwitchCase="1" id="aprovado">&nbsp;</td>
+                                                <td *ngSwitchCase="0" id="pendente">&nbsp;</td>
+                                            </div>
+                                        </td>
+
+                                        <td>{{ item.id }}</td>
+                                        <td class="limita-valor">{{ item.titulo }}</td>
+
+                                        <td class="status">
+                                            <div [ngSwitch]="item.aprovado" class="texto">
+                                                <td *ngSwitchCase="1">{{ seUm }}</td>
+                                                <td *ngSwitchCase="0">{{ seZero }}</td>
+                                            </div>
+                                        </td>
+
+                                        <td>{{ item.user_id }}</td>
+                                        <td>{{ item.created_at | date:'dd/MM HH:mm' }}</td>
+                                    </tr>                                  
+                                </tbody>
+                            </table>
+                            <div class="footer">
+                                <hr>
+                                <div class="stats">
+                                    <i class="fa fa-history"></i> Updated 3 minutes ago
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <lbd-chart
+                  [title]="'Users Behavior'"
+                  [subtitle]="'24 Hours performance'"
+                  [chartType]="hoursChartType"
+                  [chartData]="hoursChartData"
+                  [chartOptions]="hoursChartOptions"
+                  [chartResponsive]="hoursChartResponsive"
+                  [legendItems]="hoursChartLegendItems"
+                  [withHr]="false"
+                  [footerIconClass]="'fa fa-history'"
+                  [footerText]="'Updated 3 minutes ago'">
+                </lbd-chart>
+            </div>
+        </div>
+    </div>
+</div>

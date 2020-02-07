@@ -1,0 +1,124 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-crud" (click)="modalTableAddProduto()">
+                    <div class="card-crud-icons pe-7s-plus">
+                        
+                    </div>
+                    <div class="card-crud-text">
+                        Adicionar Produto
+                    </div>
+                </div>
+                <div class="card card-crud" (click)="modalTableAddCategoria()">
+                    <div class="card-crud-icons pe-7s-plus">
+
+                    </div>
+                    <div class="card-crud-text">
+                        Adicionar Categoria
+                    </div>
+                </div>
+                <div class="card card-crud" (click)="modalTableAddPedido()">
+                    <div class="card-crud-icons pe-7s-plus">
+                        
+                    </div>
+                    <div class="card-crud-text">
+                        Adicionar Pedido
+                    </div>
+                </div>
+                <mat-tab-group>
+                    <mat-tab label="Produtos">
+                        <div class="card">
+                            <div class="header">
+                                <mat-form-field class="example-full-width pesquisa">
+                                    <input matInput placeholder="Pesquisa">
+                                </mat-form-field>
+                                <h4 class="title">Produtos</h4>
+                            </div>
+                            <div class="content table-responsive t-full-width">
+                                <table class="table table-hover table-striped" id="tabela">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Descrição</th>
+                                            <th>Categoria</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+                                        <tr *ngFor="let item of listaObjetosProduto" (click)="editaProduto()">
+                                            <td>{{ item.id }}</td>
+                                            <td>{{ item.nome }}</td>
+                                            <td>{{ item.category.tipo }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </mat-tab>
+
+                    <mat-tab label="Categorias">
+                    
+                        <div class="card">
+                            <div class="header">
+                                <mat-form-field class="example-full-width pesquisa">
+                                    <input matInput placeholder="Pesquisa">
+                                </mat-form-field>
+                                <h4 class="title">Categoria</h4>
+                            </div>
+                            <div class="content table-responsive t-full-width">
+                                <table class="table table-hover table-striped" id="tabela">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Descrição</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+                                        <tr *ngFor="let item of listaObjetosCategoria" (click)="editaCategoria()" (click)="enviaIdCategoria(item.id, item.tipo)">
+                                            <td> {{ item.id }} </td>
+                                            <td> {{ item.tipo }} </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </mat-tab>
+
+                    <mat-tab label="Pedidos"> 
+                        
+                        <div class="card">
+                            <div class="header">
+                                <mat-form-field class="example-full-width pesquisa">
+                                    <input matInput placeholder="Pesquisa">
+                                </mat-form-field>
+                                <h4 class="title">Pedidos</h4>
+                            </div>
+                            <div class="content table-responsive t-full-width">
+                                <table class="table table-hover table-striped table-responsive" id="tabela">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Descrição</th>
+                                                <th>Valor</th>
+                                                <th>Solicitado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody >
+                                            <tr *ngFor="let item of listaObjetosPedido" (click)="editaPedido()">
+                                                <td>{{ item.id }}</td>
+                                                <td>{{ item.titulo }}</td>
+                                                <td>{{ item.total }}</td>
+                                                <td>{{ item.user_id }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                        </div>    
+                    </mat-tab>
+                </mat-tab-group>
+
+            </div>
+        </div>
+    </div>
+</div>

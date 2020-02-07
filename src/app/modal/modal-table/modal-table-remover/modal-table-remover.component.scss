@@ -1,0 +1,18 @@
+@import "../../../../styles.css";
+
+.inputMaior{
+    padding-right: 5px;
+    width: 400px;
+}
+.botao{
+    padding-top: 10px;
+}
+tbody tr td input{
+    background-color: gray;
+}
+.tabela{
+    width: 737px;
+    height: 275px;
+    overflow-y: scroll;
+    overflow: auto;
+}

@@ -1,0 +1,30 @@
+table thead th, td{
+    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+}
+.card .table tbody td:first-child, .card .table thead th:first-child{
+    padding-left: 0px;
+    padding-right: 2px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    height: 21px;
+}
+.texto{
+    padding-left: 15px;
+    padding-right: 0px;
+}
+.limita-valor{
+    min-width: 130px;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#aprovado{
+    background-color: #38ef7d;
+}
+#recusado{
+    background-color: #FB404B;
+}
+#pendente{
+    background-color: #1DC7EA;
+}
