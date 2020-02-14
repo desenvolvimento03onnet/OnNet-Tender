@@ -1,3 +1,4 @@
+import { retry, take } from 'rxjs/operators';
 import { GlobalVariable } from '../global';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -17,11 +18,11 @@ export class ServiceProduto {
   ) {  }
 
   getUrlApi(){
-    return this.http.get(this.url);
+    return this.http.get(this.url)
   }
 
   create(produto){
-    return this.http.post(this.url, produto).pipe()
+    return this.http.post(this.url, produto).pipe(take(1))
   }
 
 }

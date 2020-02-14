@@ -1,4 +1,5 @@
-import { MatFormFieldModule } from '@angular/material';
+import { Pedido } from './../models/Pedido';
+import { ServicePedido } from './../services/service.service.pedidos';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TypographyComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private serviceRequest: ServicePedido,
+  ) { }
+
+  listaObjetoPedido: Pedido
 
   ngOnInit() {
+    this.serviceRequest.getUrlAllRequest().subscribe(
+      data => {
+        const response = data['data'];
+        this.listaObjetoPedido = response
+        console.log('teste', this.listaObjetoPedido)
+      }, error => {
+        console.error(error)
+      }
+    )
   }
 
 }

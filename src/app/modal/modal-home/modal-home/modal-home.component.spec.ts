@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TableDadosPedidoComponent } from './table-dados-pedido.component';
+import { ModalHomeComponent } from './modal-home.component';
 
-describe('TableDadosPedidoComponent', () => {
-  let component: TableDadosPedidoComponent;
-  let fixture: ComponentFixture<TableDadosPedidoComponent>;
+describe('ModalHomeComponent', () => {
+  let component: ModalHomeComponent;
+  let fixture: ComponentFixture<ModalHomeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TableDadosPedidoComponent ]
+      declarations: [ ModalHomeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TableDadosPedidoComponent);
+    fixture = TestBed.createComponent(ModalHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,6 +1,9 @@
+import { Categoria } from './../models/Categoria';
+import { retry } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { GlobalVariable } from './../global';
 import { Injectable } from "@angular/core";
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class ServiceCategoria {
@@ -11,15 +14,16 @@ export class ServiceCategoria {
 
     constructor(
       private global: GlobalVariable,
-      private http: HttpClient
+      private http: HttpClient,
     ){  }
 
-    getUrlApiCategoriaAll(){
-      return this.http.get(this.url)
+    getUrlApiCategoriaAll(): Observable<Categoria>{
+      retry(3)
+      return this.http.get<Categoria>(this.url)
     }
 
     postCategoria(categoria){
-      return this.http.post(this.url, categoria).pipe()
+      return this.http.post(this.url, categoria).pipe(retry(3))
     }
 
     alter(categoria){

@@ -49,7 +49,8 @@
                                 </thead>
                                 <tbody>
 
-                                    <tr *ngFor="let item of listObjectPedido | slice:0:8;">
+                                    <tr *ngFor="let item of listObjectPedido | slice:0:8;" (click)="detalhaPedido(item.id)">
+                                        
                                         <td>
                                             <div [ngSwitch]="item.aprovado">
                                                 <td *ngSwitchCase="1" id="aprovado">&nbsp;</td>

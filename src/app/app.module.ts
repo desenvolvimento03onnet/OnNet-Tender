@@ -1,7 +1,13 @@
-import { TablesComponent } from './tables/tables.component';
+import { ServiceModalUpdateProduto } from 'app/services/show-modal/update-remove/service.modal-produto';
+import { ServiceModalUpdateCategoria } from './services/show-modal/update-remove/service.modal-categoria';
+import { ModalTableAdicionarCategoriaComponent } from './modal/modal-table/modal-table-adicionar-categoria/modal-table-adicionar-categoria.component';
+import { ModalTableAdicionarProdutoComponent } from './modal/modal-table/modal-table-adicionar-produto/modal-table-adicionar-produto.component';
+import { ServiceModalPedido } from './services/show-modal/create/service.modal-pedido';
+import { ServiceModalProduto } from './services/show-modal/create/service.modal-produto';
+import { ServiceModalCategoria } from './services/show-modal/create/service.modal-categoria';
+import { TablesComponent } from 'app/tables/tables.component';
 import { ServicePedido } from './services/service.service.pedidos';
 import { ServiceCategoria } from './services/service.service.categoria';
-import { TableDadosPedidoComponent } from './modal/modal-table/modal-table-remover/table-dados-pedido/table-dados-pedido.component';
 import { GlobalVariable, ConfigModal, } from './global';
 import { ServiceProduto } from './services/service.service.produto';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,9 +27,6 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { MatDialogModule } from '@angular/material/dialog';
 import 'hammerjs';
 import { ModalComponent } from './modal/modal.component';
-import { ModalTableAdicionarComponent } from './modal/modal-table/modal-table-adicionar/modal-table-adicionar.component';
-import { ModalTableRemoverComponent } from './modal/modal-table/modal-table-remover/modal-table-remover.component';
-import { ModalTableAtualizarComponent } from './modal/modal-table/modal-table-atualizar/modal-table-atualizar.component';
 import {
   MatInputModule, MatButtonModule, MatAutocompleteModule, MatBadgeModule,
   MatBottomSheetModule, MatButtonToggleModule, MatCardModule, MatCheckboxModule,
@@ -39,6 +42,8 @@ import { ServiceProdutoPedido } from './services/service.service.product-request
 import { ModalEditarComponent } from './modal/modal-editar/modal-editar.component';
 import { ModalEditarProdutoComponent } from './modal/modal-editar/modal-editar-produto/modal-editar-produto.component';
 import { ModalEditarCategoriaComponent } from './modal/modal-editar/modal-editar-categoria/modal-editar-categoria.component';
+import { ModalHomeComponent } from './modal/modal-home/modal-home/modal-home.component';
+import { ModalTableAdicionarPedidoComponent } from './modal/modal-table/modal-table-adicionar-pedido/modal-table-adicionar-pedido.component';
 
 @NgModule({
   imports: [
@@ -62,11 +67,12 @@ import { ModalEditarCategoriaComponent } from './modal/modal-editar/modal-editar
   ],
   entryComponents: [
     ModalComponent,
-    ModalTableAdicionarComponent,
-    ModalTableAtualizarComponent,
-    ModalTableRemoverComponent,
+    ModalTableAdicionarProdutoComponent,
+    ModalTableAdicionarCategoriaComponent,
+    ModalTableAdicionarPedidoComponent,
     ModalEditarCategoriaComponent,
     ModalEditarProdutoComponent,
+    ModalHomeComponent,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
@@ -75,15 +81,15 @@ import { ModalEditarCategoriaComponent } from './modal/modal-editar/modal-editar
     AppComponent,
     AdminLayoutComponent,
     ModalComponent,
-    ModalTableAdicionarComponent,
-    ModalTableRemoverComponent,
-    ModalTableAtualizarComponent,
-    TableDadosPedidoComponent,
+    ModalTableAdicionarProdutoComponent,
+    ModalTableAdicionarPedidoComponent,
+    ModalTableAdicionarCategoriaComponent,
     ModalEditarComponent,
     ModalEditarProdutoComponent,
     ModalEditarCategoriaComponent,
+    ModalHomeComponent,
   ],
-  providers: [ServiceProduto, GlobalVariable, ServiceCategoria, ServicePedido, ServiceProdutoPedido, ConfigModal,
+  providers: [ServiceProduto, GlobalVariable, ServiceCategoria, ServicePedido, ServiceProdutoPedido, ConfigModal, ServiceModalCategoria, ServiceModalProduto, ServiceModalPedido, ServiceModalUpdateCategoria, ServiceModalUpdateProduto,
   { provide: HTTP_INTERCEPTORS,
     useClass: HttpRequestInterceptor,
     multi: true, }

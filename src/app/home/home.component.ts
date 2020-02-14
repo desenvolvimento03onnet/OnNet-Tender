@@ -1,3 +1,6 @@
+import { ModalHomeComponent } from './../modal/modal-home/modal-home/modal-home.component';
+import { ConfigModal } from './../global';
+import { MatDialog } from '@angular/material';
 import { ServicePedido } from './../services/service.service.pedidos';
 import { Component, OnInit, } from '@angular/core';
 import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
@@ -28,19 +31,32 @@ export class HomeComponent implements OnInit {
     public activityChartLegendItems: LegendItem[];
 
   constructor(
-    private teste: ServicePedido
+    private serviceRequest: ServicePedido,
+    private modal: MatDialog,
+    private tamModal: ConfigModal,
   ) { }
 
   colorRecusado: string = '#dd1818'
   colorAceito: string = '#38ef7d'
-  colorPendente: string = '#F3F9A7'  
+  colorPendente: string = '#F3F9A7'
   listObjectPedido: Object[] = []
   seZero = 'Pendente'
   seUm = 'Verificado'
 
+  modalDetalhePedido(){
+    this.modal.open(ModalHomeComponent, this.tamModal.tamModalPedido)
+  }
+
+  detalhaPedido(id: number){
+    //this.modalDetalhePedido()
+    this.modalDetalhePedido()
+    return console.log('detalhaPedido', id)
+
+  }
+
   ngOnInit() {
 
-    this.teste.getUrlAllRequest().subscribe(
+    this.serviceRequest.getUrlAllRequest().subscribe(
       data => {
         const response = data['data'];
         this.listObjectPedido = response

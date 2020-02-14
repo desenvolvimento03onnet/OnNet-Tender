@@ -1,5 +1,6 @@
+import { MatDialog } from '@angular/material';
 import { take } from 'rxjs/operators';
-import { GlobalVariable } from './../global';
+import { GlobalVariable, ConfigModal } from './../global';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -8,7 +9,7 @@ export class ServicePedido{
 
     constructor( 
         private http: HttpClient,
-        private global: GlobalVariable
+        private global: GlobalVariable,
     ){  }
 
     private base:string = this.global.base_API_URL
@@ -21,5 +22,4 @@ export class ServicePedido{
     create(pedido){
         return this.http.post(this.url, pedido).pipe(take(1))
     }
-
 }

@@ -9,7 +9,11 @@ export class ModalEditarCategoriaComponent implements OnInit {
 
   constructor(
   ) { }
-  
+
+  recebe(){
+    
+  }
+
   ngOnInit() {
   }
 

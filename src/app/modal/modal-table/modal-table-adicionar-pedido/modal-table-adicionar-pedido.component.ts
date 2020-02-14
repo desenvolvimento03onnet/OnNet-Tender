@@ -1,19 +1,19 @@
-import { Pedido } from './../../../models/Pedido';
-import { ProdutoPedido } from './../../../models/ProdutoPedido';
-import { ServicePedido } from './../../../services/service.service.pedidos';
-import { ServiceProduto } from './../../../services/service.service.produto';
+import { Pedido } from '../../../models/Pedido';
+import { ProdutoPedido } from '../../../models/ProdutoPedido';
+import { ServicePedido } from '../../../services/service.service.pedidos';
+import { ServiceProduto } from '../../../services/service.service.produto';
 import { MatSnackBar, MatDialogRef } from '@angular/material';
 import { Component, OnInit, } from '@angular/core';
 import { Produto } from 'app/models/Produto';
 import { ServiceProdutoPedido } from 'app/services/service.service.product-request';
 
 @Component({
-  selector: 'app-modal-table-remover',
-  templateUrl: './modal-table-remover.component.html',
-  styleUrls: ['./modal-table-remover.component.scss']
+  selector: 'app-modal-table-adicionar-pedido',
+  templateUrl: './modal-table-adicionar-pedido-component.html',
+  styleUrls: ['./modal-table-adicionar-pedido-component.scss']
 })
 
-export class ModalTableRemoverComponent implements OnInit {
+export class ModalTableAdicionarPedidoComponent implements OnInit {
   descricaoPedido: string
   observacao: string
   produto: Produto;
@@ -87,7 +87,7 @@ export class ModalTableRemoverComponent implements OnInit {
   }
   
   constructor(
-    private modal: MatDialogRef<ModalTableRemoverComponent>,
+    private modal: MatDialogRef<ModalTableAdicionarPedidoComponent>,
     private snackBar: MatSnackBar,
     private serviceProduto: ServiceProduto,
     private servicePedido: ServicePedido,
