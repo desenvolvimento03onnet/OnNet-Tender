@@ -1,3 +1,5 @@
+import { ServiceModalUpdateCategoria } from './service.modal-categoria';
+import { ModalEditarCategoriaComponent } from 'app/modal/modal-editar/modal-editar-categoria/modal-editar-categoria.component';
 import { ModalEditarProdutoComponent } from './../../../modal/modal-editar/modal-editar-produto/modal-editar-produto.component';
 import { MatDialog } from '@angular/material';
 import { ConfigModal } from './../../../global';
@@ -11,8 +13,8 @@ export class ServiceModalUpdateProduto{
         private modal: MatDialog,
     ) {  }
 
-    modalEditarProduto(){
-        this.modal.open(ModalEditarProdutoComponent, this.tamModal.tamModal)
+    modalEditarCategoria(){
+        this.modal.open(ModalEditarCategoriaComponent, this.tamModal.tamModal)
     }
 
 }

@@ -1,3 +1,4 @@
+import { TruncatePipe } from './pipe/truncate.pipe';
 import { ServiceModalUpdateProduto } from 'app/services/show-modal/update-remove/service.modal-produto';
 import { ServiceModalUpdateCategoria } from './services/show-modal/update-remove/service.modal-categoria';
 import { ModalTableAdicionarCategoriaComponent } from './modal/modal-table/modal-table-adicionar-categoria/modal-table-adicionar-categoria.component';
@@ -11,7 +12,7 @@ import { ServiceCategoria } from './services/service.service.categoria';
 import { GlobalVariable, ConfigModal, } from './global';
 import { ServiceProduto } from './services/service.service.produto';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA, } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, Pipe, } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -88,6 +89,7 @@ import { ModalTableAdicionarPedidoComponent } from './modal/modal-table/modal-ta
     ModalEditarProdutoComponent,
     ModalEditarCategoriaComponent,
     ModalHomeComponent,
+    TruncatePipe,
   ],
   providers: [ServiceProduto, GlobalVariable, ServiceCategoria, ServicePedido, ServiceProdutoPedido, ConfigModal, ServiceModalCategoria, ServiceModalProduto, ServiceModalPedido, ServiceModalUpdateCategoria, ServiceModalUpdateProduto,
   { provide: HTTP_INTERCEPTORS,

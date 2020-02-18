@@ -1,3 +1,6 @@
+import { ServiceModalUpdateCategoria } from './../services/show-modal/update-remove/service.modal-categoria';
+import { ModalEditarCategoriaComponent } from 'app/modal/modal-editar/modal-editar-categoria/modal-editar-categoria.component';
+import { ServiceModalProduto } from './../services/show-modal/create/service.modal-produto';
 import { Produto } from 'app/models/Produto';
 import { Pedido } from './../models/Pedido';
 import { ServiceProduto } from './../services/service.service.produto';
@@ -28,13 +31,17 @@ export class TablesComponent implements OnInit {
   public listaObjetosCategorias: Categoria
   public listaObjetosPedidos: Pedido
 
-constructor(
-  private modal: MatDialog,
-  private tamModal: ConfigModal,
-  private service: ServiceProduto,
-  private serviceCategory: ServiceCategoria,
-  private serviceRequest: ServicePedido,
-) { }
+  constructor(
+    private modal: MatDialog,
+    private tamModal: ConfigModal,
+    private service: ServiceProduto,
+    private serviceCategory: ServiceCategoria,
+    private serviceRequest: ServicePedido,
+
+    private modalTeste: ServiceModalUpdateCategoria,
+  ) {  }
+
+  public dados
 
   adicionaProduto(){
     this.modal.open(ModalTableAdicionarProdutoComponent, this.tamModal.tamModal);
@@ -55,8 +62,7 @@ constructor(
       this.listaObjetosCategorias = response
     }, error => {
       console.log(error)
-    }
-  )
+    })
   }
 
   carregaProduto(){
@@ -75,8 +81,7 @@ constructor(
         this.listaObjetosPedidos = data['data']
       }, error => {
         console.error(error)
-      }
-    )
+      })
   }
 
   editaProduto(){
@@ -84,7 +89,13 @@ constructor(
   }
 
   editaCategoria(){
-    console.log('Implementar')
+    this.modal.open(ModalEditarCategoriaComponent, this.tamModal.tamModal)
+  }
+
+  envia(id, tipo){
+    this.dados = { id, tipo }
+    console.log(this.dados)
+    return this.dados
   }
 
   editaPedido(){
@@ -96,16 +107,6 @@ constructor(
     this.carregaCategoria()
     this.carregaPedido()
 
-    //Testar para ver se funfa passar o id por paramentro
-    /*this.serviceRequest.getUrlAllRequest(4).subscribe(
-      data => {
-        const response = (data as any)
-        this.listaObjetosPedidoId = response
-        console.log(this.listaObjetosPedidoId)
-      }, error => {
-        console.log(error)
-      }
-    )*/
   }
 
 }

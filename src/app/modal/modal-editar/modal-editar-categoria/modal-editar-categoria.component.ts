@@ -8,13 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class ModalEditarCategoriaComponent implements OnInit {
 
   constructor(
-  ) { }
+  ){  }
 
   recebe(){
-    
   }
 
   ngOnInit() {
+
   }
 
 }

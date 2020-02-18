@@ -44,31 +44,24 @@
                                     <th>Código</th>
                                     <th>Descrição</th>
                                     <th>Status</th>
-                                    <th>Usuário</th>
                                     <th>Data</th>
                                 </thead>
                                 <tbody>
-
                                     <tr *ngFor="let item of listObjectPedido | slice:0:8;" (click)="detalhaPedido(item.id)">
-                                        
                                         <td>
                                             <div [ngSwitch]="item.aprovado">
                                                 <td *ngSwitchCase="1" id="aprovado">&nbsp;</td>
                                                 <td *ngSwitchCase="0" id="pendente">&nbsp;</td>
                                             </div>
                                         </td>
-
                                         <td>{{ item.id }}</td>
-                                        <td class="limita-valor">{{ item.titulo }}</td>
-
+                                        <td class="limita-valor" >{{ item.titulo }} - {{ item.user_id }}</td>
                                         <td class="status">
                                             <div [ngSwitch]="item.aprovado" class="texto">
                                                 <td *ngSwitchCase="1">{{ seUm }}</td>
                                                 <td *ngSwitchCase="0">{{ seZero }}</td>
                                             </div>
                                         </td>
-
-                                        <td>{{ item.user_id }}</td>
                                         <td>{{ item.created_at | date:'dd/MM HH:mm' }}</td>
                                     </tr>                                  
                                 </tbody>

@@ -13,33 +13,36 @@
                             </div>
                             <div class="content table-responsive t-full-width">
                                 <table class="table table-hover table-striped" id="tabela">
-                                      <thead>
+                                    <thead>
                                         <tr>
                                             <th>Id</th>
                                             <th>Descrição</th>
                                             <th>Usuário</th>
-                                            <th>Data</th>
-                                          </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Lápizes</td>
-                                            <td>Financeiro</td>
-                                            <td>11/02 13:41</td>
+                                            <th>Criado</th>
+                                            <th>Aprovado</th>
                                         </tr>
-                                      </tbody>
-                                  </table>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of pedidosNaoVistos">
+                                            <td>{{ item.id }}</td>
+                                            <td>{{ item.titulo | uppercase}}</td>
+                                            <td>{{ item.user_id }}</td>
+                                            <td>{{ item.updated_at | date:'dd/MM' }}</td>
+                                            <td>{{ item.approved_date | date:'dd/MM' }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                           </div>
                         </div>
                     </mat-tab>
-                    <mat-tab label="Histórico">
+
+                    <mat-tab label="Enviados e Não Vistos">
                         <div class="card">
                             <div class="header">
                                 <mat-form-field class="example-full-width pesquisa">
                                     <input matInput placeholder="Pesquisa">
                                 </mat-form-field>
-                                <h4 class="title">Histórico</h4>
+                                <h4 class="title">Enviados e Não Vistos</h4>
                             </div>
                             <div class="content table-responsive t-full-width">
                                 <table class="table table-hover table-striped" id="tabela">
@@ -48,21 +51,94 @@
                                             <th>Id</th>
                                             <th>Descrição</th>
                                             <th>Usuário</th>
-                                            <th>Data</th>
+                                            <th>Criado</th>
+                                            <th>Aprovado</th>
                                         </tr>
                                     </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Canetases</td>
-                                                <td>Estoque</td>
-                                                <td>12/03 14:13</td>
+                                            <tr *ngFor="let item of pedidosVistos">
+                                                <td>{{ item.id }}</td>
+                                                <td>{{ item.titulo | uppercase }}</td>
+                                                <td>{{ item.user_id }}</td>
+                                                <td>{{ item.updated_at | date:'dd/MM' }}</td>
+                                                <td>{{ item.approved_date | date:'dd/MM' }}</td>
                                             </tr>
                                         </tbody>
                                 </table>
                             </div>
                         </div>
                     </mat-tab>
+
+                    <mat-tab label="Enviados e Vistos">
+                        <div class="card">
+                            <div class="header">
+                                <mat-form-field class="example-full-width pesquisa">
+                                    <input matInput placeholder="Pesquisa">
+                                </mat-form-field>
+                                <h4 class="title">Enviados e Vistos</h4>
+                            </div>
+                            <div class="content table-responsive t-full-width">
+                                <table class="table table-hover table-striped" id="tabela">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Descrição</th>
+                                            <th>Usuário</th>
+                                            <th>Valor</th>
+                                            <th>Criado</th>
+                                            <th>Aprovado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of pedidosEnvioVistos">
+                                            <td>{{ item.id }}</td>
+                                            <td>{{ item.titulo | uppercase }}</td>
+                                            <td>{{ item.user_id }}</td>
+                                            <td>{{ item.total }}</td>
+                                            <td>{{ item.updated_at | date:'dd/MM' }}</td>
+                                            <td>{{ item.approved_date | date:'dd/MM' }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </mat-tab>
+
+                    <mat-tab label="Finalizados">
+                        <div class="card">
+                            <div class="header">
+                                <mat-form-field class="example-full-width pesquisa">
+                                    <input matInput placeholder="Pesquisa">
+                                </mat-form-field>
+                                <h4 class="title">Finalizados</h4>
+                            </div>
+                            <div class="content table-responsive t-full-width">
+                                <table class="table table-hover table-striped" id="tabela">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Descrição</th>
+                                            <th>Usuário</th>
+                                            <th>Valor</th>
+                                            <th>Criado</th>
+                                            <th>Aprovado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of pedidosFechados">
+                                            <td>{{ item.id }}</td>
+                                            <td>{{ item.titulo | uppercase }}</td>
+                                            <td>{{ item.user_id }}</td>
+                                            <td>{{ item.total }}</td>
+                                            <td>{{ item.updated_at | date:'dd/MM' }}</td>
+                                            <td>{{ item.approved_date | date:'dd/MM' }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </mat-tab>
+
                 </mat-tab-group>
             </div>
         </div>
