@@ -66,23 +66,4 @@ export class ModalTableAdicionarProdutoComponent implements OnInit {
         console.log(error);
     })
   }
-
-/*
-Aqui jas um código com snackbar
-  adicionaProduto(message: string, action: null){
-    if(this.message.nativeElement.value != ''){      
-      console.log(this.categoria);
-      console.log(this.message);
-      
-      message = message.toString().trim();
-      this.snackBar.open(`Produto: ${message} cadastrado com sucesso`, action, {
-        duration: 3000,
-      });
-    } else {
-      this.snackBar.open(message = 'Insira uma descrição válido', action, {
-        duration: 3000,
-      });      
-    }
-  }
-*/
 }

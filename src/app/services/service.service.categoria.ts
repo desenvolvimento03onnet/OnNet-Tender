@@ -18,7 +18,6 @@ export class ServiceCategoria {
     ){  }
 
     getUrlApiCategoriaAll(): Observable<Categoria>{
-      retry(3)
       return this.http.get<Categoria>(this.url)
     }
 
@@ -26,7 +25,11 @@ export class ServiceCategoria {
       return this.http.post(this.url, categoria).pipe(retry(3))
     }
 
-    alter(categoria){
-      return this.http.put(this.url, categoria).pipe()
+    alter(categoria, corpo){
+      var extensao = `/${categoria}`
+      var URL = this.url + extensao
+      console.log('URL: ', URL)
+      return this.http.put(URL, corpo).pipe()
     }
+    
 }

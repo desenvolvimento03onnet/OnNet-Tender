@@ -45,7 +45,7 @@
                                         </tr>
                                     </thead>
                                     <tbody >
-                                        <tr *ngFor="let item of listaObjetosProdutos" (click)="editaProduto()">
+                                        <tr *ngFor="let item of listaObjetosProdutos" (click)="editaProduto(item.id, item.nome, item.category.tipo, item.category.id)">
                                             <td>{{ item.id }}</td>
                                             <td>{{ item.nome | uppercase}}</td>
                                             <td>{{ item.category.tipo | uppercase }}</td>
@@ -74,7 +74,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let item of listaObjetosCategorias" (click)="envia(item.id, item.tipo); editaCategoria()">
+                                        <tr *ngFor="let item of listaObjetosCategorias" (click)="editaCategoria(item.id, item.tipo)">
                                             <td> {{ item.id }} </td>
                                             <td> {{ item.tipo | uppercase }} </td>
                                         </tr>

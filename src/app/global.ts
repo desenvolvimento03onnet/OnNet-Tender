@@ -10,6 +10,8 @@ export class GlobalVariable {
 export class ConfigModal{
     tamModal: Object = 
     { height: '320px', width: '400px' };
+
     tamModalPedido: Object = 
     { height: '600px', width: '800px' };
+
 }

@@ -1,16 +1,20 @@
 @import "../../../../styles.css";
 
 .btn-left{
-    padding-top: 99px;
+    padding-top: 74px;
     padding-left: 90px;
     float: left;
     padding-left: 0px;
 }
 .btn-right{
-    padding-top: 99px;
+    padding-top: 74px;
     padding-left: 90px;
     float: right;
 }
 mat-form-field{
     width: 100%;
+}
+h6{
+    color: green;
+    font-size: 10px;
 }

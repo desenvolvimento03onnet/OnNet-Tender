@@ -25,4 +25,10 @@ export class ServiceProduto {
     return this.http.post(this.url, produto).pipe(take(1))
   }
 
+  alter(produto, corpo){
+    var URL = `${this.url}/${produto}`
+    console.log(URL)
+    return this.http.put(URL, corpo).pipe()
+  }
+
 }

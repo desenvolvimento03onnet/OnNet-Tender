@@ -1,5 +1,6 @@
-import { ServiceModalUpdateCategoria } from './../services/show-modal/update-remove/service.modal-categoria';
+import { ModalEditarProdutoComponent } from './../modal/modal-editar/modal-editar-produto/modal-editar-produto.component';
 import { ModalEditarCategoriaComponent } from 'app/modal/modal-editar/modal-editar-categoria/modal-editar-categoria.component';
+import { ServiceModalUpdateCategoria } from './../services/show-modal/update-remove/service.modal-categoria';
 import { ServiceModalProduto } from './../services/show-modal/create/service.modal-produto';
 import { Produto } from 'app/models/Produto';
 import { Pedido } from './../models/Pedido';
@@ -84,18 +85,14 @@ export class TablesComponent implements OnInit {
       })
   }
 
-  editaProduto(){
-    console.log('Implementar')
+  editaProduto(_id, _nome, _categoria, _id_categoria){
+    this.modal.open(ModalEditarProdutoComponent, { height: '400px', width: '400px', data: { _id, _nome, _categoria, _id_categoria } } )
+    var dado = { _id, _nome, _categoria, _id_categoria }
+    console.log(dado)
   }
 
-  editaCategoria(){
-    this.modal.open(ModalEditarCategoriaComponent, this.tamModal.tamModal)
-  }
-
-  envia(id, tipo){
-    this.dados = { id, tipo }
-    console.log(this.dados)
-    return this.dados
+  editaCategoria(_id, _tipo){
+    this.modal.open(ModalEditarCategoriaComponent, { height: '320px', width: '400px', data: { id: _id, tipo: _tipo } } )
   }
 
   editaPedido(){

@@ -1,3 +1,4 @@
+import { ModalEditarCategoriaComponent } from 'app/modal/modal-editar/modal-editar-categoria/modal-editar-categoria.component';
 import { TruncatePipe } from './pipe/truncate.pipe';
 import { ServiceModalUpdateProduto } from 'app/services/show-modal/update-remove/service.modal-produto';
 import { ServiceModalUpdateCategoria } from './services/show-modal/update-remove/service.modal-categoria';
@@ -42,7 +43,6 @@ import { HttpRequestInterceptor } from './auth/interceptor.module';
 import { ServiceProdutoPedido } from './services/service.service.product-request';
 import { ModalEditarComponent } from './modal/modal-editar/modal-editar.component';
 import { ModalEditarProdutoComponent } from './modal/modal-editar/modal-editar-produto/modal-editar-produto.component';
-import { ModalEditarCategoriaComponent } from './modal/modal-editar/modal-editar-categoria/modal-editar-categoria.component';
 import { ModalHomeComponent } from './modal/modal-home/modal-home/modal-home.component';
 import { ModalTableAdicionarPedidoComponent } from './modal/modal-table/modal-table-adicionar-pedido/modal-table-adicionar-pedido.component';
 
@@ -71,9 +71,9 @@ import { ModalTableAdicionarPedidoComponent } from './modal/modal-table/modal-ta
     ModalTableAdicionarProdutoComponent,
     ModalTableAdicionarCategoriaComponent,
     ModalTableAdicionarPedidoComponent,
-    ModalEditarCategoriaComponent,
     ModalEditarProdutoComponent,
     ModalHomeComponent,
+    ModalEditarCategoriaComponent,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
@@ -91,7 +91,8 @@ import { ModalTableAdicionarPedidoComponent } from './modal/modal-table/modal-ta
     ModalHomeComponent,
     TruncatePipe,
   ],
-  providers: [ServiceProduto, GlobalVariable, ServiceCategoria, ServicePedido, ServiceProdutoPedido, ConfigModal, ServiceModalCategoria, ServiceModalProduto, ServiceModalPedido, ServiceModalUpdateCategoria, ServiceModalUpdateProduto,
+  providers: [ServiceProduto, GlobalVariable, ServiceCategoria, ServicePedido, ServiceProdutoPedido, ConfigModal, 
+  ServiceModalCategoria, ServiceModalProduto, ServiceModalPedido, ServiceModalUpdateCategoria, ServiceModalUpdateProduto,
   { provide: HTTP_INTERCEPTORS,
     useClass: HttpRequestInterceptor,
     multi: true, }

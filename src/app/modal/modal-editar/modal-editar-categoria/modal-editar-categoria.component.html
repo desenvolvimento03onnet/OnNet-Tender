@@ -1,15 +1,15 @@
 <p class="title"> Categoria - Edição </p>
+<h6>id: {{ data.id }} - Atual: {{ oldName }}</h6>
 <hr>
 
 <mat-form-field>
-  <input matInput type="text" placeholder="Descrição da Categoria">
+  <input matInput type="text" placeholder="Descrição da Categoria" [(ngModel)]="data.tipo"/>
 </mat-form-field>
-
 <div class="botoes">
   <div class="btn-left">
-    <button type="submit" class="btn btn-atencao" (click)="recebe()">Alterar</button>
+    <button type="submit" class="btn btn-atencao" (click)="altera()">Alterar</button>
   </div>
   <div class="btn-right">
-    <button type="submit" class="btn btn-remover">Excluir</button>
+    <button type="submit" class="btn btn-remover" (click)="exclui()">Desabilitar</button>
   </div>
 </div>
