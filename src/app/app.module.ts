@@ -45,6 +45,7 @@ import { ModalEditarComponent } from './modal/modal-editar/modal-editar.componen
 import { ModalEditarProdutoComponent } from './modal/modal-editar/modal-editar-produto/modal-editar-produto.component';
 import { ModalHomeComponent } from './modal/modal-home/modal-home/modal-home.component';
 import { ModalTableAdicionarPedidoComponent } from './modal/modal-table/modal-table-adicionar-pedido/modal-table-adicionar-pedido.component';
+import { ModalEditarPedidoComponent } from './modal/modal-editar/modal-editar-pedido/modal-editar-pedido.component';
 
 @NgModule({
   imports: [
@@ -90,6 +91,7 @@ import { ModalTableAdicionarPedidoComponent } from './modal/modal-table/modal-ta
     ModalEditarCategoriaComponent,
     ModalHomeComponent,
     TruncatePipe,
+    ModalEditarPedidoComponent,
   ],
   providers: [ServiceProduto, GlobalVariable, ServiceCategoria, ServicePedido, ServiceProdutoPedido, ConfigModal, 
   ServiceModalCategoria, ServiceModalProduto, ServiceModalPedido, ServiceModalUpdateCategoria, ServiceModalUpdateProduto,

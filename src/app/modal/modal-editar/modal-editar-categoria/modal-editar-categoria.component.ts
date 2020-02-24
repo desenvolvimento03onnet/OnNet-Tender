@@ -15,6 +15,7 @@ export class ModalEditarCategoriaComponent implements OnInit {
   ){  }
 
   oldName = this.data.tipo
+  listaObjetosCategorias
 
   altera(){
     var corpo = {

@@ -1,7 +1,5 @@
 import { ModalEditarProdutoComponent } from './../modal/modal-editar/modal-editar-produto/modal-editar-produto.component';
 import { ModalEditarCategoriaComponent } from 'app/modal/modal-editar/modal-editar-categoria/modal-editar-categoria.component';
-import { ServiceModalUpdateCategoria } from './../services/show-modal/update-remove/service.modal-categoria';
-import { ServiceModalProduto } from './../services/show-modal/create/service.modal-produto';
 import { Produto } from 'app/models/Produto';
 import { Pedido } from './../models/Pedido';
 import { ServiceProduto } from './../services/service.service.produto';
@@ -38,11 +36,13 @@ export class TablesComponent implements OnInit {
     private service: ServiceProduto,
     private serviceCategory: ServiceCategoria,
     private serviceRequest: ServicePedido,
-
-    private modalTeste: ServiceModalUpdateCategoria,
   ) {  }
 
-  public dados
+  isHidden: boolean = false;
+
+  atualiza(){
+    this.carregaTudo()
+  }
 
   adicionaProduto(){
     this.modal.open(ModalTableAdicionarProdutoComponent, this.tamModal.tamModal);
@@ -56,17 +56,31 @@ export class TablesComponent implements OnInit {
     this.modal.open(ModalTableAdicionarPedidoComponent, this.tamModal.tamModalPedido);
   }
 
-  carregaCategoria(){
-  this.serviceCategory.getUrlApiCategoriaAll().subscribe(
-    data => {
-      const response = (data as any)
-      this.listaObjetosCategorias = response
-    }, error => {
-      console.log(error)
-    })
+  editaProduto(_id, _nome, _categoria, _id_categoria){
+    this.modal.open(ModalEditarProdutoComponent, { height: '400px', width: '400px', data: { _id, _nome, _categoria, _id_categoria } } )
   }
 
-  carregaProduto(){
+  editaCategoria(_id, _tipo){
+    this.modal.open(ModalEditarCategoriaComponent, { height: '320px', width: '400px', data: { id: _id, tipo: _tipo } } )
+  }
+
+  editaPedido(_id, ){
+    console.log('Implementar')
+  }
+
+  ngOnInit() {
+    this.carregaTudo()
+  }
+
+  carregaTudo(){
+    this.serviceCategory.getUrlApiCategoriaAll().subscribe(
+      data => {
+        const response = (data as any)
+        this.listaObjetosCategorias = response
+      }, error => {
+        console.log(error)
+    })
+
     this.service.getUrlApi().subscribe(
       data=>{
         const response = (data as any);
@@ -74,36 +88,13 @@ export class TablesComponent implements OnInit {
       }, error => {
         console.log(error);
     })
-  }
 
-  carregaPedido(){
     this.serviceRequest.getUrlAllRequest().subscribe(
       data => {
         this.listaObjetosPedidos = data['data']
       }, error => {
         console.error(error)
-      })
-  }
-
-  editaProduto(_id, _nome, _categoria, _id_categoria){
-    this.modal.open(ModalEditarProdutoComponent, { height: '400px', width: '400px', data: { _id, _nome, _categoria, _id_categoria } } )
-    var dado = { _id, _nome, _categoria, _id_categoria }
-    console.log(dado)
-  }
-
-  editaCategoria(_id, _tipo){
-    this.modal.open(ModalEditarCategoriaComponent, { height: '320px', width: '400px', data: { id: _id, tipo: _tipo } } )
-  }
-
-  editaPedido(){
-    console.log('Implementar')
-  }
-
-  ngOnInit() {
-    this.carregaProduto()
-    this.carregaCategoria()
-    this.carregaPedido()
-
+    })
   }
 
 }

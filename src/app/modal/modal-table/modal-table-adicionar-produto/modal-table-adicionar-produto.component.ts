@@ -19,18 +19,17 @@ export class ModalTableAdicionarProdutoComponent implements OnInit {
 
   constructor(
     private snackBar: MatSnackBar,
-    private category: ServiceCategoria,
+    private serviceCategory: ServiceCategoria,
     private product: ServiceProduto,
     private modal: MatDialogRef<ModalTableAdicionarProdutoComponent>,
     private procuctTable: ServiceProduto,
   ) { }
 
   carregaCategoria(){
-    this.category.getUrlApiCategoriaAll().subscribe(
+    this.serviceCategory.getUrlApiCategoriaAll().subscribe(
       data => {
         const response = (data as any)
         this.listaObjectCategoria = response
-        console.log(this.listaObjectCategoria)
       }, error => {
         console.error(error)
       }
@@ -54,16 +53,5 @@ export class ModalTableAdicionarProdutoComponent implements OnInit {
     )
 
     this.modal.close()
-  }
-
-  carregaProduto(){
-    this.procuctTable.getUrlApi().subscribe(
-      data=>{
-        const response = (data as any);
-        this.listaObjectProduto = response;
-        console.log(this.listaObjectProduto)
-      }, error => {
-        console.log(error);
-    })
   }
 }

@@ -4,7 +4,7 @@
 <hr>
 
 <mat-form-field>
-  <input matInput type="text" placeholder="Descrição do Produto">
+  <input matInput type="text" placeholder="Descrição do Produto" [(ngModel)]="newName" name="newName">
 </mat-form-field>
 
 <mat-form-field class="select">
@@ -14,7 +14,7 @@
   <mat-select [(ngModel)]="categoriaSelecionada" name="categoria">
 
     <mat-option 
-      *ngFor="let item of listaObjectCategoria" [value]="item">
+      *ngFor="let item of listaObjectCategory" [value]="item">
         {{ item.tipo }}
     </mat-option>
   </mat-select>

@@ -17,26 +17,40 @@ export class ModalEditarProdutoComponent implements OnInit {
   ) { }
 
   oldIdProduct = this.data._id
-  oldDescript = this.data._nome
+  newName = this.data._nome
   oldCategory = this.data._categoria
   oldIdCategory = this.data._id_categoria
 
   listaObjectCategory:Object
   categoriaSelecionada
 
+  carregaCategoria(){
+    this.serviceCategory.getAll().subscribe(
+      data => {
+        this.listaObjectCategory = data
+        console.log('Teste: ',this.listaObjectCategory)
+      }, error => {
+        console.log(error);
+    })
+  }
+  
   ngOnInit() {
     this.carregaCategoria()
-    console.log('Carrega Categoria: ', this.listaObjectCategory)
   }
 
   alter(){
     var corpo: Object = {
-      id: this.data._id,
       nome: this.data._nome,
       category: this.data._categoria,
       id_category: this.data._id_categoria
     }
     
+    corpo = {
+      nome: this.newName,
+      categoria_id: this.categoriaSelecionada.id
+    }
+    console.log('corpo', corpo)
+
     this.serviceProduct.alter(this.data._id, corpo).subscribe(
       success => {
         alert('Deu certo')
@@ -48,16 +62,6 @@ export class ModalEditarProdutoComponent implements OnInit {
 
   disabled(){
     console.log('Implementar')
-  }
-
-  carregaCategoria(){
-    this.serviceCategory.getUrlApiCategoriaAll().subscribe(
-      data=>{
-        this.listaObjectCategory = data
-        console.log('Teste: ',this.listaObjectCategory)
-      }, error => {
-        console.log(error);
-    })
   }
 
 }

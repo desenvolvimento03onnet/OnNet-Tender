@@ -1,23 +1,27 @@
 @import "../../../../styles.css";
 
 .btn-left{
-    padding-top: 137px;
+    padding-top: 81px;
     padding-left: 90px;
     float: left;
     padding-left: 0px;
 }
 .btn-right{
-    padding-top: 137px;
+    padding-top: 81px;
     padding-left: 90px;
     float: right;
 }
 mat-form-field{
     width: 100%;
 }
-.subtitle{
+.select{
+    width: 100%;
+}
+.subtitle:nth-child(2){
     color: green;
     font-size: 10px;
 }
-.select{
-    width: 100%;
+.subtitle:nth-child(3){
+    color: blue;
+    font-size: 10px;
 }

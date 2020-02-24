@@ -26,7 +26,7 @@ export class ModalTableAdicionarCategoriaComponent implements OnInit {
       this.categoria.postCategoria(retorno).subscribe(
         success =>{
           alert(`Categoria ${this.descricao}, inserido com sucesso`)
-          location.reload()
+          //location.reload()
         }, error => {
         alert(`Ocorreu um erro ao inserir esta categoria`)
         }

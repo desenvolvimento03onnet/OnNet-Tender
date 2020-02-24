@@ -21,8 +21,12 @@ export class ServiceCategoria {
       return this.http.get<Categoria>(this.url)
     }
 
+    getAll(){
+      return this.http.get(this.url)
+    }
+
     postCategoria(categoria){
-      return this.http.post(this.url, categoria).pipe(retry(3))
+      return this.http.post(this.url, categoria).pipe()
     }
 
     alter(categoria, corpo){
